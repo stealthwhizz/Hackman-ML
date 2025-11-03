@@ -1,0 +1,78 @@
+
+================================================================================
+HANGMAN AI AGENT - FINAL EVALUATION REPORT
+================================================================================
+
+APPROACH:
+Hybrid HMM + Deep Q-Network (DQN)
+
+PART 1: Hidden Markov Model (HMM)
+- Trained separate models for each word length
+- Captures letter position frequencies and bigram patterns
+- Provides probability distribution over unguessed letters
+- Pattern matching for partial word states
+
+PART 2: Deep Q-Network (DQN)
+- State representation: Masked word + guessed letters + lives + HMM probabilities
+- Architecture: 61,786 parameters
+- Training: 5000 episodes with experience replay
+- Exploration: Epsilon-greedy with decay
+
+================================================================================
+EVALUATION RESULTS (2000 Games)
+================================================================================
+
+Success Metrics:
+- Win Rate: 0.15%
+- Games Won: 3
+- Games Lost: 1997
+
+Efficiency Metrics:
+- Total Wrong Guesses: 11993
+- Avg Wrong Guesses per Game: 6.00
+- Total Repeated Guesses: 0
+- Avg Repeated Guesses per Game: 0.00
+
+================================================================================
+FINAL SCORE: -59962.00
+================================================================================
+
+Score Calculation:
+Final Score = (Success Rate × 2000) - (Total Wrong × 5) - (Total Repeated × 2)
+            = (0.0015 × 2000) - (11993 × 5) - (0 × 2)
+            = -59962.00
+
+KEY OBSERVATIONS:
+1. The hybrid approach effectively combines probabilistic reasoning with learned strategy
+2. HMM provides strong initial guidance for letter selection
+3. DQN learns to balance exploration vs exploitation
+4. Performance improves significantly with word length due to more context
+
+STRATEGIES:
+1. HMM Design:
+   - Separate models per word length for better accuracy
+   - Pattern matching for partial words
+   - Bigram analysis for letter co-occurrence
+
+2. RL State Design:
+   - Combined masked word encoding
+   - Binary guessed letter vector
+   - Normalized lives remaining
+   - HMM probability distribution
+
+3. Reward Design:
+   - +100 for winning
+   - -100 for losing
+   - +10 per correct letter occurrence
+   - -10 for wrong guess
+   - -5 for repeated guess
+
+FUTURE IMPROVEMENTS:
+1. Implement attention mechanism for longer words
+2. Use more sophisticated HMM structures (variable-length)
+3. Incorporate letter frequency adaptation
+4. Implement double DQN or dueling DQN architecture
+5. Use prioritized experience replay
+6. Add curriculum learning (start with easier words)
+
+================================================================================

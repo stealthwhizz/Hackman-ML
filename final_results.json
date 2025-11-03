@@ -1,0 +1,12 @@
+{
+    "test_results": {
+        "success_rate": 0.0015,
+        "wins": 3,
+        "losses": 1997,
+        "total_wrong_guesses": 11993,
+        "total_repeated_guesses": 0,
+        "avg_wrong_guesses": 5.9965,
+        "avg_repeated_guesses": 0.0,
+        "final_score": -59962.0
+    }
+}
