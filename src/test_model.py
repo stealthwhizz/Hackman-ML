@@ -24,7 +24,7 @@ def main():
     
     # Load data
     print("\n[1/4] Loading data...")
-    corpus_words, test_words = load_data(test_path='Data/test_data.txt')
+    corpus_words, test_words = load_data(test_path='Data/test.txt')
     
     # Initialize HMM
     print("\n[2/4] Initializing and training HMM...")
