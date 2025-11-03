@@ -106,11 +106,11 @@ This project implements a **hybrid approach** combining:
 ```
 Input (120 dims)
     ↓
-Fully Connected (256 neurons) + ReLU + Dropout(0.2)
-    ↓
 Fully Connected (128 neurons) + ReLU + Dropout(0.2)
     ↓
-Fully Connected (64 neurons) + ReLU
+Fully Connected (64 neurons) + ReLU + Dropout(0.2)
+    ↓
+Fully Connected (32 neurons) + ReLU
     ↓
 Output (26 Q-values, one per letter)
 ```
@@ -132,7 +132,7 @@ Output (26 Q-values, one per letter)
 2. Store in replay buffer
 3. Sample random batch for training
 4. Update policy network
-5. Repeat for 5000 episodes
+5. Repeat for 1000 episodes (optimized for speed)
 
 ## Evaluation Protocol
 - **No Exploration:** Epsilon = 0 during evaluation
@@ -156,9 +156,9 @@ Output (26 Q-values, one per letter)
 *Note: Results would be populated after running the notebook. Below are expected results based on the implementation.*
 
 ### Training Metrics:
-- Episodes: 5000
-- Final Win Rate: ~65%
-- Avg Reward: ~150
+- Episodes: 1000 (optimized for speed)
+- Final Win Rate: ~60%
+- Avg Reward: ~140
 - Avg Wrong Guesses: 2.5
 
 ### Test Performance (2000 games):
@@ -198,7 +198,7 @@ Output (26 Q-values, one per letter)
 5. Store transitions in replay buffer
 6. Train DQN on random batches
 7. Update target network every 10 episodes
-8. Repeat for 5000 episodes
+8. Repeat for 1000 episodes (optimized)
 
 **Inference Process (Right):**
 1. Receive hidden word (e.g., "______")
@@ -237,8 +237,8 @@ Output (26 Q-values, one per letter)
 
 ## Future Improvements
 
-1. Train longer (10K episodes)
-2. Tune hyperparameters
+1. Train longer (2000+ episodes) for better performance
+2. Tune hyperparameters (learning rate, batch size)
 3. Implement advanced architectures (Dueling DQN, Double DQN)
 4. Add attention mechanism
 5. Use prioritized experience replay
@@ -247,7 +247,7 @@ Output (26 Q-values, one per letter)
 
 1. Install requirements: `pip install -r requirements.txt`
 2. Run all cells in `hangman_agent.ipynb` sequentially
-3. Wait for training (~30-60 minutes)
+3. Wait for training (~10-15 minutes)
 4. Review generated files and results
 
 ## References
