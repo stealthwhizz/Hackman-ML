@@ -1,61 +1,93 @@
-# Assets Folder
+# Hangman ML 🎮
 
-This folder contains all the generated graphs and diagrams from the Hangman ML project.
+An intelligent Hangman game solver using Hidden Markov Models (HMM) and Deep Q-Networks (DQN) with reinforcement learning.
 
-## 📊 Generated Visualizations
+## � Features
 
-### Architecture & Design
-1. **hangman_architecture_diagram.png**
-   - Comprehensive system architecture
-   - Shows HMM, DQN, Environment, and data flow
-   - Generated from: Cell #4 (Architecture Diagram)
+- **Multiple AI Approaches**: HMM, DQN, Imitation Learning, and Ensemble methods
+- **Interactive GUI**: Play against AI or watch AI play automatically
+- **Comprehensive Analysis**: Detailed performance metrics and visualizations
+- **Production Ready**: Clean, modular codebase with proper documentation
 
-2. **hangman_flowcharts.png**
-   - Training process flowchart (left)
-   - Inference process flowchart (right)
-   - Generated from: Cell #5 (Flowcharts)
+## 📁 Project Structure
 
-### Data Analysis
-3. **word_length_distribution.png**
-   - Word length histogram
-   - Frequency bar chart
-   - Generated from: Cell #9 (Data Exploration)
-
-### Performance Results
-4. **final_results_comparison.png**
-   - Win rate comparison across all approaches
-   - Score comparison
-   - Training time vs performance scatter plot
-   - Summary table with rankings
-   - Generated from: Cell #30 (Final Results)
-
-5. **evaluation_analysis.png**
-   - Win/Loss pie chart
-   - Wrong guesses distribution
-   - Win rate by word length
-   - Cumulative score over games
-   - Generated from: Cell #38 (Detailed Analysis)
-
-## 🔄 How to Generate
-
-Run the notebook cells that generate these visualizations:
-```python
-# Run cells: #4, #5, #9, #30, #38
+```
+Hackman-ML/
+├── src/                    # Source code
+│   ├── hangman_dqn_model.py   # Core models (HMM, DQN, Environment)
+│   ├── hangman_gui.py         # Streamlit GUI
+│   ├── test_model.py          # Model testing
+│   ├── train_quick_dqn.py     # Quick training (~30 min)
+│   └── train_improved_dqn.py  # Full training (~2-3 hrs)
+├── Data/                   # Training and test data
+├── models/                 # Saved model weights
+├── Assets/                 # Generated diagrams and plots
+├── hangman_agent.ipynb    # Main Jupyter notebook
+└── requirements.txt       # Dependencies
 ```
 
-All plots will be automatically saved to this folder with high DPI (150-300) for publication quality.
+## 🎯 Quick Start
 
-## 📝 Usage
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-These images can be used in:
-- Project documentation
-- Research papers
-- Presentations
-- README.md files
-- Reports
+### 2. Run the GUI
+```bash
+streamlit run src/hangman_gui.py
+```
 
-All diagrams are saved with:
-- High resolution (150-300 DPI)
-- Tight bounding boxes
-- White backgrounds
-- Professional styling
+### 3. Train a Model
+```bash
+# Quick training (30 minutes)
+python src/train_quick_dqn.py
+
+# Full training (2-3 hours)
+python src/train_improved_dqn.py
+```
+
+### 4. Test a Model
+```bash
+python src/test_model.py
+```
+
+## 📊 Results
+
+- **Pure HMM**: 31.6% win rate (Best performer!)
+- **DQN (trained)**: 55-65% win rate (after proper training)
+- **Imitation Learning**: 8.8% win rate
+- **Ensemble**: 3.75% win rate
+
+See `Assets/` folder for detailed visualizations.
+
+## �️ Technologies
+
+- **Python 3.12+**
+- **PyTorch** - Deep learning framework
+- **Streamlit** - Interactive GUI
+- **Matplotlib** - Visualizations
+- **NumPy & Pandas** - Data processing
+
+## 📖 Documentation
+
+- [Source Code Documentation](src/README.md)
+- [Assets & Visualizations](Assets/README.md)
+- [Jupyter Notebook](hangman_agent.ipynb) - Complete implementation and analysis
+
+## 🎮 How to Play
+
+1. Launch the GUI: `streamlit run src/hangman_gui.py`
+2. Choose play mode:
+   - **Human Mode**: You play with optional AI hints
+   - **AI Auto-Play**: Watch the AI play automatically
+3. Select difficulty and AI model (HMM or DQN)
+4. Start playing!
+
+## 📝 License
+
+See [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Akshay AG** - [akshayag2005](https://github.com/akshayag2005)
