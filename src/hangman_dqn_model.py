@@ -522,7 +522,7 @@ def evaluate_agent(agent, test_words, num_games=2000, verbose=True):
     return results
 
 
-def load_data(corpus_path='Data/corpus.txt', test_path='Data/test_data.txt'):
+def load_data(corpus_path='Data/corpus.txt', test_path='Data/test.txt'):
     """Load training and test data."""
     with open(corpus_path, 'r', encoding='utf-8') as f:
         corpus_words = [word.strip().lower() for word in f.readlines()]
